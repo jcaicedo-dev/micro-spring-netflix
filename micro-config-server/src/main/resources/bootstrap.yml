@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: micro-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${PROPERTIES_GIT_REPO}
+
+eureka:
+  instance:
+    nonSecurePort: 9001
+  client:
+    serviceUrl:
+      defaultZone: http://micro-discovery-server:9000/eureka/

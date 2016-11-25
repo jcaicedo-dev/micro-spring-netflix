@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  micro-discovery-server:
+    container_name: micro-discovery-server
+    image: micro/micro-discovery-server
+    ports:
+      - "9000:9000"
+  micro-config-server:
+    container_name: micro-config-server
+    image: micro/micro-config-server
+    environment:
+      - PROPERTIES_GIT_REPO=git@bitbucket.org:ingjmcaicedo/micro-config-properties.git
+    ports:
+      - "9001:9001"
+    links:
+      - micro-discovery-server:micro-discovery-server
