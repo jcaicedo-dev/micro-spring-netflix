@@ -5,11 +5,13 @@ spring:
     config:
       server:
         git:
-          uri: ${PROPERTIES_GIT_REPO}
+          uri: git@bitbucket.org:ingjmcaicedo/micro-config-properties.git
+---
 
-eureka:
-  instance:
-    nonSecurePort: 9001
-  client:
-    serviceUrl:
-      defaultZone: http://micro-discovery-server:9000/eureka/
+spring:
+  profiles: docker
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${PROPERTIES_GIT_REPO}

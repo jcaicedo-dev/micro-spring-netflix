@@ -1,9 +1,17 @@
-server:
-  port: 9001
-  
+spring:
+  application:
+    name: micro-parameter-service
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: MICRO-CONFIG-SERVER
+      fail-fast: true
+
 eureka:
   instance:
-    nonSecurePort: ${server.port}
+    nonSecurePort: 9090
   client:
     serviceUrl:
       defaultZone: http://localhost:${EUREKA_PORT:9000}/eureka/
@@ -11,8 +19,10 @@ eureka:
 
 spring:
     profiles: docker
+server:
+  port: 8080
 eureka:
   client:
     serviceUrl:
       defaultZone: http://micro-discovery-server:${EUREKA_PORT:9000}/eureka/
-  
+      

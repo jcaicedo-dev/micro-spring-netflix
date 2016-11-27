@@ -1,5 +1,5 @@
 server:
-  port: 9000
+  port: ${EUREKA_PORT:9000}
 
 eureka:
   instance:
